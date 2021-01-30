@@ -29,6 +29,16 @@ class Students extends Component {
 
         return (
             <div>
+                {/*<div id='linksToVisitPage' style={{position: 'fixed', top: '30px', left: '0px', right: '0px', width: '100%', backgroundColor: '', zIndex: '99'}}>*/}
+                {/*    <Search*/}
+                {/*        onLoadStudents={this.props.onLoadStudents}*/}
+                {/*        // isLoadingHandler={isLoadingHandler}*/}
+                {/*        // isNotLoadingHandler={isNotLoadingHandler}*/}
+                {/*    />*/}
+                {/*</div>*/}
+                {/*<br/>*/}
+                {/*<br/>*/}
+                {/*<br/>*/}
                 <Search
                     onLoadStudents={this.props.onLoadStudents}
                     // isLoadingHandler={isLoadingHandler}

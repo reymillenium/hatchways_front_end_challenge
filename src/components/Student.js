@@ -4,6 +4,7 @@ import Avatar from 'react-avatar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Collapse from 'react-bootstrap/Collapse';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCoffee} from '@fortawesome/fontawesome-free-solid';
 
 const Student = (props) => {
     const [open, setOpen] = useState(false);

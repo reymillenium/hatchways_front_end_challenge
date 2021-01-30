@@ -25,9 +25,9 @@ class App extends Component {
   render() {
       let routes = (
           <Switch>
-              {/*<Route path={"/students"} component={Students}/>*/}
-              <Route path={"/"} exact component={Students}/>
-              <Redirect to={"/"}/>
+              <Route path={"/students"} component={Students}/>
+              {/*<Route path={"/"} exact component={Students}/>*/}
+              {/*<Redirect to={"/"}/>*/}
           </Switch>
       );
 
