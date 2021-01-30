@@ -8,19 +8,12 @@ import PropTypes from 'prop-types';
 const toolbar = (props) => (
     <header className={classes.Toolbar}>
         <DrawerToggle clicked={props.drawerToggleClicked}/>
-        {/*<HamburgerIcon clicked={props.drawerToggleClicked}>*/}
-        {/*<HamburgerIcon>*/}
-        {/*    /!*MENU*!/*/}
-        {/*</HamburgerIcon>*/}
-
-        {/*<Logo height={'80%'}/>*/}
-        {/* Another way: */}
         <div className={classes.Logo}>
             <Logo/>
         </div>
-        <nav className={classes.DesktopOnly}>
-            <NavigationItems isAuthenticated={props.isAuthenticated}/>
-        </nav>
+        {/*<nav className={classes.DesktopOnly}>*/}
+        {/*    <NavigationItems isAuthenticated={props.isAuthenticated}/>*/}
+        {/*</nav>*/}
     </header>
 );
 

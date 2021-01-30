@@ -1,5 +1,5 @@
 import React from "react";
-import burgerLogo from './../../../src/assets/images/burger_only_centered_trimmed_logo.png';
+import burgerLogo from './../../../src/assets/images/hatchways_robot_logo.png';
 import classes from './Logo.module.scss';
 import PropTypes from 'prop-types';
 
