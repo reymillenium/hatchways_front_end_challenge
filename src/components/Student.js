@@ -1,8 +1,17 @@
-import React, { useState} from "react";
+import React, {useState} from "react";
 import classes from './Student.module.scss';
 import Avatar from 'react-avatar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Collapse from 'react-bootstrap/Collapse'
+import Collapse from 'react-bootstrap/Collapse';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCoffee} from '@fortawesome/fontawesome-free-solid';
+
+
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {fab} from '@fortawesome/free-brands-svg-icons'
+// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import burgerLogo from "../assets/images/burger_only_centered_trimmed_logo.png";
 
@@ -28,7 +37,7 @@ const Student = (props) => {
             <div className="row">
                 <div className="col-md-3" style={{paddingLeft: '30px', paddingTop: '10px', textAlign: 'center'}}>
                     <p>
-                        <Avatar style={{borderWidth: 1, borderColor: '#9e9e9e', borderStyle: 'solid'}} size={'160px'} src={props.studentData.pic} round={true}/>
+                        <Avatar style={{borderWidth: 2, borderColor: '#9e9e9e', borderStyle: 'solid'}} size={'160px'} src={props.studentData.pic} round={true}/>
                     </p>
                 </div>
 
@@ -49,22 +58,16 @@ const Student = (props) => {
                 </div>
 
                 <div className="col-md-4">
-                    <button
-                        onClick={() => setOpen(!open)}
-                        aria-controls="example-collapse-text"
-                        aria-expanded={open}
-                    >
-                        {open ? 'Close' : 'Open'} click
-                    </button>
-                    {/*<Collapse in={open}>*/}
-                    {/*    <div id="example-collapse-text">*/}
-                    {/*        {divGrades}*/}
-                    {/*        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus*/}
-                    {/*        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer*/}
-                    {/*        labore wes anderson cred nesciunt sapiente ea proident.*/}
-                    {/*    </div>*/}
-                    {/*</Collapse>*/}
-
+                    <div className={'float-right'}>
+                        <button
+                            className={'btn pull-right'}
+                            onClick={() => setOpen(!open)}
+                            aria-controls="example-collapse-text"
+                            aria-expanded={open}
+                        >
+                            <FontAwesomeIcon icon={open ? 'minus' : 'plus'} size="lg" color="green"/>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
