@@ -3,6 +3,7 @@ import Student from '../components/Student';
 import axios from '../axios-students';
 import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
 import Spinner from '../components/UI/Spinner/Spinner';
+import Search from './../components/Search';
 
 import {connect} from 'react-redux';
 import * as actionCreators from "../store/actions";
@@ -28,7 +29,11 @@ class Students extends Component {
 
         return (
             <div>
-                {/*{console.log(students)}*/}
+                <Search
+                    onLoadStudents={this.props.onLoadStudents}
+                    // isLoadingHandler={isLoadingHandler}
+                    // isNotLoadingHandler={isNotLoadingHandler}
+                />
                 {students}
             </div>
         );
@@ -46,9 +51,9 @@ const mapStateToProps = state => {
 // Using action creators
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchStudents: () => dispatch(actionCreators.fetchStudents())
+        onFetchStudents: () => dispatch(actionCreators.fetchStudents()),
+        onLoadStudents: (ingredients) => dispatch(actionCreators.setStudents(ingredients))
     };
 };
 
-// export default Students;
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Students, axios));

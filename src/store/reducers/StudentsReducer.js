@@ -19,6 +19,10 @@ const fetchStudentsFail = (state, action) => {
     return updateObject(state, {loading: false});
 };
 
+const setStudents = (state, action) => {
+    return updateObject(state, {students: action.payload.students});
+}
+
 const studentsReducer = (state = initialState, action) => {
     switch (action.type) {
 
@@ -30,6 +34,9 @@ const studentsReducer = (state = initialState, action) => {
 
         case actionTypes.FETCH_STUDENTS_FAIL:
             return fetchStudentsFail(state, action);
+
+        case actionTypes.SET_STUDENTS:
+            return setStudents(state, action);
 
         default:
             return {

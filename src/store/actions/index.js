@@ -2,5 +2,6 @@
 
 // authActionCreators
 export {
-    fetchStudents
+    fetchStudents,
+    setStudents
 } from "./StudentsActionCreators";

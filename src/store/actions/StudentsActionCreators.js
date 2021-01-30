@@ -28,6 +28,15 @@ export const fetchStudentsStart = () => {
     }
 };
 
+export const setStudents = (students) => {
+    return {
+        type: actionTypes.SET_STUDENTS,
+        payload: {
+            students: students
+        }
+    }
+};
+
 export const fetchStudents = (token, userId) => {
     // Using the redux-thunk middleware
     return dispatch => {
