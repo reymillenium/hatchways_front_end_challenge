@@ -26,8 +26,8 @@ class App extends Component {
       let routes = (
           <Switch>
               <Route path={"/students"} component={Students}/>
-              {/*<Route path={"/"} exact component={Students}/>*/}
-              {/*<Redirect to={"/"}/>*/}
+              <Route path={"/"} exact component={Students}/>
+              <Redirect to={"/"}/>
           </Switch>
       );
 

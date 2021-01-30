@@ -21,23 +21,16 @@ const Search = React.memo(props => {
             // ... with the current value on the input (filterInputRef.current.value, because is defined outside of the closure, so it is not locked)
             // If the are equals, that means that the user stopped typing
             if (filterInputState === filterInputRef.current.value) {
-                // const query = filterInputState.length === 0 ? '' : `?orderBy="title"&startAt="${filterInputState}"&endAt="${filterInputState}\uf8ff"`;
-                const query = '';
                 sendRequest(
-                    'https://api.hatchways.io/assessment/students' + query,
+                    'https://api.hatchways.io/assessment/students',
                     'GET'
                 );
             }
         }, 500);
 
         // Cleanup function. It gets executed only BEFORE this same useEffect is executed for the next time.
-        // So the first time this component renders and useEffect is executed this cleanup function does not executes
-        // And then after the first key stroke, the cleanup function is executed BEFORE useEffect gets executed again
-        // * If I have [] as dependencies (useEffect runs only once), the cleanup function runs when the component  gets unmounted
         return () => {
             // This clears the old timer before it sets a new one
-            // This ensures that we always have only one ongoing timer
-            // This way we don't have all those redundant timers in memory, but only one instead
             clearTimeout(timer);
         }
 
@@ -54,6 +47,7 @@ const Search = React.memo(props => {
                 });
             }
             // Filters the students with a firstName or lastName that contains the filterState (It works simply perfect!)
+            // Is better than url queries: is case insensitive and uses inclusion instead of prefixes
             const filteredLoadedStudents = loadedStudents.filter(student => student.firstName.toLowerCase().includes(filterInputState.toLowerCase()) || student.lastName.toLowerCase().includes(filterInputState.toLowerCase()));
             onLoadStudents(filteredLoadedStudents);
         }
@@ -65,14 +59,14 @@ const Search = React.memo(props => {
             {errorMessage && <ErrorModal onClose={clear}>{errorMessage}</ErrorModal>}
             <Card>
                 <div className="search-input">
-                    <label>Search by name</label>
-                    {isLoading && <span>Loading...</span>}
                     <input
                         // Establish the connection between the input element and the filterInputRef constant
                         ref={filterInputRef}
                         type="text"
                         value={filterInputState}
                         onChange={event => setFilterInputState(event.target.value)}
+                        className={'form-control'}
+                        placeholder={'Search by name'}
                     />
                 </div>
             </Card>

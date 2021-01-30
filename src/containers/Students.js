@@ -4,6 +4,7 @@ import axios from '../axios-students';
 import withErrorHandler from "../hoc/withErrorHandler/withErrorHandler";
 import Spinner from '../components/UI/Spinner/Spinner';
 import Search from './../components/Search';
+import classes from './Students.module.scss';
 
 import {connect} from 'react-redux';
 import * as actionCreators from "../store/actions";
@@ -29,21 +30,11 @@ class Students extends Component {
 
         return (
             <div>
-                {/*<div id='linksToVisitPage' style={{position: 'fixed', top: '30px', left: '0px', right: '0px', width: '100%', backgroundColor: '', zIndex: '99'}}>*/}
-                {/*    <Search*/}
-                {/*        onLoadStudents={this.props.onLoadStudents}*/}
-                {/*        // isLoadingHandler={isLoadingHandler}*/}
-                {/*        // isNotLoadingHandler={isNotLoadingHandler}*/}
-                {/*    />*/}
-                {/*</div>*/}
-                {/*<br/>*/}
-                {/*<br/>*/}
-                {/*<br/>*/}
-                <Search
-                    onLoadStudents={this.props.onLoadStudents}
-                    // isLoadingHandler={isLoadingHandler}
-                    // isNotLoadingHandler={isNotLoadingHandler}
-                />
+                <div className={classes.searchBox}>
+                    <Search onLoadStudents={this.props.onLoadStudents}/>
+                </div>
+                <br/>
+                <br/>
                 {students}
             </div>
         );
