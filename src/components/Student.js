@@ -5,16 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Collapse from 'react-bootstrap/Collapse';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCoffee} from '@fortawesome/fontawesome-free-solid';
-
-
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {fab} from '@fortawesome/free-brands-svg-icons'
-// import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-import burgerLogo from "../assets/images/burger_only_centered_trimmed_logo.png";
-
 const Student = (props) => {
     const [open, setOpen] = useState(false);
 
@@ -58,15 +48,17 @@ const Student = (props) => {
                 </div>
 
                 <div className="col-md-4">
-                    <div className={'float-right'}>
-                        <button
-                            className={'btn pull-right'}
-                            onClick={() => setOpen(!open)}
-                            aria-controls="example-collapse-text"
-                            aria-expanded={open}
-                        >
-                            <FontAwesomeIcon icon={open ? 'minus' : 'plus'} size="lg" color="green"/>
-                        </button>
+                    <div className={classes.collapsableButton}>
+                        <div className={'float-right'}>
+                            <button
+                                className={'btn pull-right'}
+                                onClick={() => setOpen(!open)}
+                                aria-controls="example-collapse-text"
+                                aria-expanded={open}
+                            >
+                                <FontAwesomeIcon icon={open ? 'minus' : 'plus'} size="lg" color="black"/>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
