@@ -35,10 +35,10 @@ const Student = (props) => {
                 <div className="col-md-5">
                     <h1>{props.studentData.firstName.toUpperCase()} {props.studentData.lastName.toUpperCase()}</h1>
                     <p>
-                        <div><strong>Email:</strong> <span>{props.studentData.email}</span></div>
-                        <div><strong>Company:</strong> <span>{props.studentData.company}</span></div>
-                        <div><strong>Skill:</strong> <span>{props.studentData.skill}</span></div>
-                        <div><strong>Average:</strong> <span>{average} %</span></div>
+                        <div><span>Email:</span> <span>{props.studentData.email}</span></div>
+                        <div><span>Company:</span> <span>{props.studentData.company}</span></div>
+                        <div><span>Skill:</span> <span>{props.studentData.skill}</span></div>
+                        <div><span>Average:</span> <span>{average} %</span></div>
                     </p>
 
                     <Collapse in={open}>
