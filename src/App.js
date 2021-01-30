@@ -12,19 +12,43 @@ import {connect} from 'react-redux';
 import Auxiliary from './hoc/Auxiliary/Auxiliary';
 import asyncComponent from "./hoc/asyncComponent/asyncComponent";
 
+// Containers & Components:
+import Layout from './hoc/Layout/Layout';
+// import Students from "./containers/Students";
 
+
+// Lazy Containers & Components:
 const Students = asyncComponent(() => import("./containers/Students"));
 
 class App extends Component {
 
   render() {
-    return (
-        <div className="App">
+      let routes = (
+          <Switch>
+              <Route path={"/students"} component={Students}/>
+              {/*<Route path={"/"} exact component={Students}/>*/}
+              {/*<Redirect to={"/"}/>*/}
+          </Switch>
+      );
 
-        </div>
+    return (
+        <Auxiliary>
+            <Layout>
+                {routes}
+                {/*<Switch>*/}
+                {/*    <Route path={"/checkout"} component={Checkout}/>*/}
+                {/*    <Route path={"/orders"} component={Orders}/>*/}
+                {/*    <Route path={"/auth"} component={Auth}/>*/}
+                {/*    <Route path={"/logout"} component={Logout}/>*/}
+                {/*    <Route path={"/"} component={BurgerBuilder}/>*/}
+                {/*</Switch>*/}
+            </Layout>
+        </Auxiliary>
     );
   }
 
 }
 
-export default App;
+// export default App;
+
+export default withRouter(connect(null, null)(App));
