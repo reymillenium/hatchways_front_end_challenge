@@ -8,15 +8,11 @@ import sideDrawer from "../SideDrawer/SideDrawer";
 
 const navigationItems = (props) => (
     <ul className={classes.NavigationItems}>
-        <NavigationItem href={"/"} exact={true} clicked={props.clicked}>Burger Builder</NavigationItem>
+        {/*<NavigationItem href={"/"} exact={true} clicked={props.clicked}>Burger Builder</NavigationItem>*/}
+        {/*<NavigationItem href={"/"} exact={true} clicked={props.clicked}>Burger Builder</NavigationItem>*/}
 
-        {props.isAuthenticated
-            ? <NavigationItem href={"/orders"} clicked={props.clicked}>Orders</NavigationItem>
-            : null}
+        <NavigationItem href={"/students"} clicked={props.clicked}>Students</NavigationItem>
 
-        {props.isAuthenticated
-            ? <NavigationItem href={"/logout"} clicked={props.clicked}>Logout</NavigationItem>
-            : <NavigationItem href={"/auth"} clicked={props.clicked}>Authenticate</NavigationItem>}
     </ul>
 );
 
