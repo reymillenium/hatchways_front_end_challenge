@@ -12,24 +12,23 @@ class Students extends Component {
     }
 
     componentDidMount() {
-        this.props.onFetchStudents(this.props.token, this.props.userId);
+        this.props.onFetchStudents();
     }
 
     render() {
         let students = <Spinner/>;
         if (!this.props.loading) {
-            students = this.props.students.map(order => (
+            students = this.props.students.map(student => (
                 <Student
-                    key={order.id}
-                    price={order.price}
-                    ingredients={order.ingredients}
-                    orderData={order.orderData}
+                    key={student.id}
+                    studentData={student}
                 />
             ))
         }
 
         return (
             <div>
+                {/*{console.log(students)}*/}
                 {students}
             </div>
         );
